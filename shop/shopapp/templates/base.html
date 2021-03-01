@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+<div><a href="{% url 'cart' %}">Корзина</a> <span>{{ cart.products.count }}</span></div>
+
+
+<h1>Базовый шаблон</h1>
+{% for product in products%}
+<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+{{ product.price }}
+{% endfor %}
+{% endblock content %}
+{% for category in categories %}
+<a href="{{category.url}}">{{ category.name }} {{ category.count }}</a>
+
+{% endfor %}
+</body>
+</html>

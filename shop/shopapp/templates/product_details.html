@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load specification %}
+{% block content %}
+
+<ul>
+    <li> <a href="{{ url ''}}">{{product.category.name }}</a></li>
+    <li> <a href="{{ url ''}}">{{product.title }}</a></li>
+
+</ul>
+
+<h1>{{product.title }}</h1>
+
+<p>Price: {{product.price }}</p>
+<p>Description: {{product.description }}</p>
+
+<hr>
+<a href=" {% url 'add-to-cart' ct_model=ct_model slug=product.slug %}">
+    <button>Добавить в корзину</button>
+</a>
+
+
+
+{{product|product_spec }}
+
+{% endblock content %}
+

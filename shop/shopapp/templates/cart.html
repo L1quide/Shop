@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Ваша корзина {% if not cart.products.count %}пуста{% endif%}</h1>
+
+{% for item in cart.products.all %}
+    <p> {{ item.content_object.title }}</p>
+    <p> {{ item.qty }}</p>
+    <p> {{ item.final_price }}</p>
+
+(% endfor %)
+
+{% endblock content %}
